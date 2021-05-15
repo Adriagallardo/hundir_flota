@@ -136,7 +136,6 @@ while empieza_jose > empieza_adria:
     if all(lista_vida_barcos) or all(lista_vida_barcos_enemigos):
         if all(lista_vida_barcos):
             print('Has perdido')
-            b
         else:
             print('Has ganado')
         break
