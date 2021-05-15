@@ -1,5 +1,5 @@
 1 -Solo Vertical y horizontal. 
-+Adri: Solucionado, funciona tanto en barcos horizontales como en verticales. Las pautas de norte y sur están en #comentario por si se necesita.
++Adri: Faltaba algun self y el print de posición cuenta con el indice ahora.
 2- Añadir try-except para no parar ejecucion
 3- Las dos tablas a la vez
 4- Si golpeas un sitio dos veces que te avise

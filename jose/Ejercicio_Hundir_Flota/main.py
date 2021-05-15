@@ -128,7 +128,7 @@ lista_barcos = [primer_barco_2_1, segundo_barco_2_1, tercer_barco_2_1, cuarto_ba
 empiece_partida()
 dict_posiciones = {barco.nombre : barco.posicion for barco in lista_barcos}
 
-#crear_json_posiciones(nombre_archivo=) # Opcional si quieres construir una archivo JSON con las posiciones elegias
+#crear_json_posiciones(nombre_archivo=) # Opcional si quieres construir una archivo JSON con las posiciones elegidas
 
 with open('posiciones.json', mode='r+') as pos:
     datos_enemigo = json.load(pos)
@@ -144,6 +144,11 @@ for k, v in datos_enemigo.items():
 
 
 empieza_jose, empieza_adria = quien_empieza()
+#if empieza_jose > empieza_adria:
+#    print(f"Jose ha sacado un {empieza_jose} y Adrià un {empieza_adria}. Jose dispara primero! ")
+#elif:
+#    print(f"Jose ha sacado un {empieza_adria} y Adrià un {empieza_jose}. Adrià dispara primero! ")
+
 while empieza_jose == empieza_adria:
     empieza_jose, empieza_adria = quien_empieza()
 
