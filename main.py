@@ -46,10 +46,10 @@ def quien_empieza():
     
 def crear_json_posiciones(dict_posiciones : dict):
     '''
-    Esta función crea un archivo JSON con el nombres pasado por parametro que contiene las posiciones
+    Esta función crea un archivo JSON con los nombres pasado por parametro que contiene las posiciones
     de los barcos escogidos.
     '''
-    with open('./Partidas_Batalla_Naval/archivo_rival.json', mode='w+') as rival:
+    with open('./json_usuario/archivo_rival.json', mode='w+') as rival:
         datos_enemigo = json.dump(dict_posiciones, rival, indent=4)
     print('--------------')
 
@@ -178,8 +178,8 @@ crear_json_posiciones(dict_posiciones)
 
 while True:
     try :
-        x = input('Importa el json del rival a la carpeta con el nombre "archivo_rival.json" y pulsa Enter')
-        with open('archivo_rival.json', 'r+') as rival:
+        x = input('Importa el json del rival a la carpeta con el nombre "json_rival"\nY pasale el archivo json creado en la carpeta "json_usuario"\nPulsa Enter para continuar')
+        with open('json_rival/archivo_rival.json', 'r+') as rival:
             datos_enemigos = json.load(rival)
             break
     except Exception:
