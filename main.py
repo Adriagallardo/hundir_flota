@@ -156,7 +156,6 @@ def empiece_partida():
                 print('Lee de nuevo las instrucciones!')
 
 np.set_printoptions(linewidth=100)
-os.system('clear')
 bienvenida()
 mesa_de_juego = Tablero()
 tablero_diana = Tablero()
@@ -196,7 +195,6 @@ for k, v in datos_enemigos.items():
 # Ademas construimos una lista de listas de tuplas donde se guardara la posicion que ocupa cada barco
 
 empieza_yo, empieza_oponente = quien_empieza()
-os.system('clear')
 print(np.concatenate((mesa_de_juego.tabla, separador, tablero_diana.tabla), axis=1))
 ganador_jose = None
 print('Comienza la partida!')

@@ -1,130 +1,35 @@
 {
-    "Primer barco 2x1": [
-        [
-            6,
-            4
-        ],
-        [
-            7,
-            4
-        ]
-    ],
-    "Segundo barco 2x1": [
-        [
-            9,
-            4
-        ],
-        [
-            10,
-            4
-        ]
-    ],
-    "Tercer barco 2x1": [
-        [
-            6,
-            1
-        ],
-        [
-            6,
-            2
-        ]
-    ],
-    "Cuarto barco 2x1": [
-        [
-            7,
-            1
-        ],
-        [
-            7,
-            2
-        ]
-    ],
-    "Primer barco 3x1": [
-        [
-            5,
-            7
-        ]
-    ],
-    "Segundo barco 3x1": [
-        [
-            6,
-            7
-        ],
-        [
-            6,
-            8
-        ]
-    ],
-    "Tercer barco 3x1": [
-        [
-            7,
-            7
-        ],
-        [
-            7,
-            8
-        ],
-        [
-            7,
-            9
-        ]
-    ],
+    "Primer barco 2x1": [],
+    "Segundo barco 2x1": [],
+    "Tercer barco 2x1": [],
+    "Cuarto barco 2x1": [],
+    "Primer barco 3x1": [],
+    "Segundo barco 3x1": [],
+    "Tercer barco 3x1": [],
     "Primer barco 4x1": [
         [
-            1,
-            1
-        ],
-        [
-            1,
-            2
-        ],
-        [
-            1,
-            3
-        ],
-        [
-            1,
+            8,
             4
         ]
     ],
     "Segundo barco 4x1": [
         [
-            1,
-            10
-        ],
-        [
-            2,
-            10
-        ],
-        [
-            3,
-            10
-        ],
-        [
-            4,
-            10
+            9,
+            4
         ]
     ],
     "Primer barco 5x1": [
         [
-            1,
+            10,
+            3
+        ],
+        [
+            10,
+            4
+        ],
+        [
+            10,
             5
-        ],
-        [
-            1,
-            6
-        ],
-        [
-            1,
-            7
-        ],
-        [
-            1,
-            8
-        ],
-        [
-            1,
-            9
         ]
     ]
 }
