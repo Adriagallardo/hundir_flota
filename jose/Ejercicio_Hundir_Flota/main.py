@@ -15,7 +15,40 @@ def bienvenida():
     if preparado.lower() == 'no':
         print('¿No estas preparado?. Vuelve cuando lo estes.')
         exit()
+    cargar = int(input('¿Quieres empezar una partida nueva o cargar la última partida guardada?\nPulsa 0 para empezar nueva partida y 1 para cargar partida: '))
+    if cargar:
+        mesa_de_juego, tablero_diana = cargar_partida()
+        return mesa_de_juego, tablero_diana
     print('Empezaremos rellenando tu tablero: ')
+    mesa_de_juego = Tablero()
+    tablero_diana = Tablero()
+    return mesa_de_juego, tablero_diana
+
+def guardar_partida(dict_posciones, datos_enemigos, mi_tabla, tabla_enemiga):
+    with open('Partidas_guardadas/mis_partidas.json', 'w+') as mis_barcos:
+        json.dump(dict_posciones, mis_barcos, indent=4)
+    with open('Partidas_guardadas/partidas_enemigas.json', 'w+') as barcos_enemigos:
+        json.dump(datos_enemigos, barcos_enemigos, indent=4)
+    with open('Partidas_guardadas/mi_tabla.json', 'w+') as mi_tablero:
+        json.dump(mi_tabla.tabla.tolist(), mi_tablero, indent=4)
+    with open('Partidas_guardadas/tablero_enemgio.json', 'w+') as tablero_enemigo:
+        json.dump(tabla_enemiga.tabla.tolist(), tablero_enemigo, indent=4)
+
+def cargar_partida():
+    try:
+        with open('Partidas_guardadas/mi_tabla.json', 'r+') as mi_tablero:
+            lista_cargada_mis_barcos = json.load(mi_tablero)
+        with open('Partidas_guardadas/tablero_enemgio.json', 'r+') as tablero_enemigo:
+            lista_cargada_barcos_enemigos = json.load(tablero_enemigo)
+        mesa_de_juego = Tablero()
+        mesa_de_juego.tabla = np.array(lista_cargada_mis_barcos)
+        tablero_diana = Tablero()
+        tablero_diana.tabla = np.array(lista_cargada_barcos_enemigos)
+        return mesa_de_juego, tablero_diana
+    
+    except Exception:
+        print('No tienes partidas guardadas')
+        return False
 
 def quien_empieza():
     print('--------------')
@@ -149,10 +182,7 @@ def empiece_partida():
 
 np.set_printoptions(linewidth=100)
 os.system('clear')
-bienvenida()
-mesa_de_juego = Tablero()
-tablero_enemigo = Tablero()
-tablero_diana = Tablero()
+mesa_de_juego, tablero_diana = bienvenida()
 separador = np.full((11, 1), '|')
 primer_barco_2_1 = Barcos('Primer barco 2x1', 2)
 segundo_barco_2_1 = Barcos('Segundo barco 2x1', 2)
@@ -173,14 +203,14 @@ while True:
     try :
         x = input('Importa el json del rival a la carpeta con el nombre "archivo_rival.json" y pulsa Enter')
         with open('archivo_rival.json', 'r+') as rival:
-            datos_enemigo = json.load(rival)
+            datos_enemigos = json.load(rival)
             break
     except Exception:
         print('No has importado bien.')
         pass
 
 lista_barcos_enemigos = []
-for k, v in datos_enemigo.items():
+for k, v in datos_enemigos.items():
     k = Barcos(k, len(v))
     for posicion in v:
         k.posicion.append(posicion)
@@ -207,6 +237,7 @@ while empieza_yo > empieza_oponente:
         break
     atacar(tablero_diana, lista_barcos_enemigos)
     defender(mesa_de_juego, lista_barcos)
+    guardar_partida(dict_posiciones, datos_enemigos, mesa_de_juego, tablero_diana)
     
 while empieza_yo < empieza_oponente:
     lista_vida_barcos = [barco.muerte for barco in lista_barcos]
@@ -221,6 +252,7 @@ while empieza_yo < empieza_oponente:
         break
     defender(mesa_de_juego, lista_barcos)
     atacar(tablero_diana, lista_barcos_enemigos)
+    guardar_partida(dict_posiciones, datos_enemigos, mesa_de_juego, tablero_diana)
     
 actualizar_marcadores(ganador_yo)   
 print('Partida terminada')
